@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="format-detection" content="telephone=no">
+  <title>Portal del estudiante · UPV</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main id="login-view" class="login-view">
+    <header class="login-header">
+      <div class="upv-logo-crop" aria-label="Universitat Politècnica de València">
+        <img src="inspiration/escudo.png" alt="Universitat Politècnica de València">
+      </div>
+      <span class="header-divider" aria-hidden="true"></span>
+      <h1>Iniciar sesión</h1>
+    </header>
+
+    <section class="login-panel" aria-labelledby="login-title">
+      <h2 id="login-title">INTRANET UPV</h2>
+      <p class="login-prompt">Introduce tu usuario y clave</p>
+
+      <form id="login-form" novalidate>
+        <label class="field">
+          <svg aria-hidden="true"><use href="#icon-user"></use></svg>
+          <input id="username" name="username" type="text" autocomplete="username" placeholder="Usuario o DNI" aria-label="Usuario o DNI">
+        </label>
+        <label class="field password-field">
+          <svg aria-hidden="true"><use href="#icon-lock"></use></svg>
+          <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Clave" aria-label="Clave">
+          <button class="show-password" type="button" aria-label="Mostrar clave">
+            <svg aria-hidden="true"><use href="#icon-eye"></use></svg>
+          </button>
+        </label>
+        <a class="small-link" href="#">¿Has olvidado tu clave?</a>
+        <p id="login-error" class="login-error" role="alert"></p>
+        <button class="red-button" type="submit">Iniciar sesión</button>
+      </form>
+
+      <div class="other-methods">
+        <h3>Otros métodos de autenticación</h3>
+        <button class="red-button" type="button">Certificado digital</button>
+        <button class="red-button" type="button">Cl@ve</button>
+      </div>
+
+      <div class="login-help">
+        <a href="#">¿Necesitas Ayuda?</a>
+        <p>Por razones de seguridad, por favor <strong>cierra tu sesión y tu navegador web cuando hayas terminado</strong> de acceder a los servicios que requieren autenticación.</p>
+        <p>Si tienes algún problema con la nueva autenticación, por favor <a href="#">comunícalo</a> y, mientras tanto, puedes identificarte en la intranet usando la <a href="#">autenticación antigua</a>.</p>
+      </div>
+    </section>
+  </main>
+
+  <main id="app-view" class="app-view" hidden>
+    <header class="app-header">
+      <button class="menu-button" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+      <div class="app-brand">
+        <span class="app-seal" aria-hidden="true">UPV</span>
+        <span>Universitat Politècnica<br>de València</span>
+      </div>
+      <button id="logout-button" class="logout-button" aria-label="Cerrar sesión">
+        <svg aria-hidden="true"><use href="#icon-logout"></use></svg>
+      </button>
+    </header>
+
+    <section id="home-section" class="screen active" data-title="Inicio">
+      <div class="welcome-block">
+        <span class="eyebrow">BUENOS DÍAS</span>
+        <h1>Hola, <span id="home-first-name">estudiante</span></h1>
+        <p>Todo lo que necesitas para tu día en la UPV.</p>
+      </div>
+
+      <article class="hero-card">
+        <div>
+          <span class="hero-kicker">CAMPUS SOSTENIBLE</span>
+          <h2>Muévete por la UPV</h2>
+          <p>Consulta los puntos de Valenbisi y las opciones de transporte del campus.</p>
+        </div>
+        <button aria-label="Ver información"><svg aria-hidden="true"><use href="#icon-arrow"></use></svg></button>
+      </article>
+
+      <div class="section-heading">
+        <h2>Tus avisos</h2>
+        <button type="button">Ver todos</button>
+      </div>
+
+      <div class="notice-list">
+        <article class="notice-card">
+          <div class="notice-icon"><svg aria-hidden="true"><use href="#icon-info"></use></svg></div>
+          <div><span>HOY · 12:30</span><h3>Jornada de bienvenida</h3><p>Te esperamos en el Ágora para conocer los servicios y asociaciones del campus.</p></div>
+        </article>
+        <article class="notice-card">
+          <div class="notice-icon"><svg aria-hidden="true"><use href="#icon-calendar"></use></svg></div>
+          <div><span>MAÑANA · 09:00</span><h3>Inicio del periodo de matrícula</h3><p>Revisa tu cita previa y la documentación necesaria antes de comenzar.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="record-section" class="screen" data-title="Expediente">
+      <div class="screen-title-row">
+        <div><span class="eyebrow">CURSO 2026—27</span><h1>Expediente académico</h1></div>
+        <div class="average"><strong id="average-grade">—</strong><span>MEDIA</span></div>
+      </div>
+      <label class="search-field">
+        <svg aria-hidden="true"><use href="#icon-search"></use></svg>
+        <input type="search" placeholder="Buscar en el expediente" aria-label="Buscar en el expediente">
+      </label>
+      <p id="degree-title" class="degree-title">GRADO EN INGENIERÍA AEROESPACIAL</p>
+      <div class="record-summary">
+        <div><strong id="passed-credits">—</strong><span>Créditos superados</span></div>
+        <div><strong>240</strong><span>Créditos totales</span></div>
+      </div>
+      <h2 class="subject-group-title">Asignaturas obligatorias</h2>
+      <div id="subjects-list" class="subjects-list"></div>
+    </section>
+
+    <section id="card-section" class="screen" data-title="Carnet UPV">
+      <div class="screen-title-row card-title-row">
+        <div><span class="eyebrow">IDENTIFICACIÓN DIGITAL</span><h1>Carnet UPV</h1></div>
+        <span class="status-pill">Activo</span>
+      </div>
+
+      <article class="student-card">
+        <div class="card-top">
+          <div class="card-university">
+            <span class="card-seal"><img src="inspiration/escudo_carnet.jpeg" alt="Escudo UPV"></span>
+            <p>UNIVERSITAT<br>POLITÈCNICA<br>DE VALÈNCIA</p>
+          </div>
+          <div class="student-photo"><img id="student-photo" src="" alt="Foto del estudiante"></div>
+        </div>
+        <div class="card-person">
+          <h2 id="student-name">NOMBRE DEL ESTUDIANTE</h2>
+          <p>ESTUDIANTE DE GRADO</p>
+          <span id="student-school">Escuela Técnica Superior de Ingeniería Aeroespacial</span>
+        </div>
+        <div class="barcode" aria-label="Código de barras del carnet"><i></i></div>
+        <div class="card-internal-id">
+          <span>ID INTERNO UPV</span>
+          <strong id="barcode-number">—</strong>
+        </div>
+      </article>
+      <button class="photo-button" type="button">
+        <svg aria-hidden="true"><use href="#icon-camera"></use></svg>
+        Solicitar cambio de fotografía
+      </button>
+      <div class="card-help"><svg aria-hidden="true"><use href="#icon-info"></use></svg><p>Este carnet digital acredita tu vinculación con la UPV. Puedes utilizarlo en bibliotecas y servicios del campus.</p></div>
+    </section>
+
+    <nav class="bottom-nav" aria-label="Navegación principal">
+      <button class="nav-item active" data-target="home-section"><svg aria-hidden="true"><use href="#icon-home"></use></svg><span>Inicio</span></button>
+      <button class="nav-item" data-target="record-section"><svg aria-hidden="true"><use href="#icon-file"></use></svg><span>Expediente</span></button>
+      <button class="nav-item" data-target="card-section"><svg aria-hidden="true"><use href="#icon-card"></use></svg><span>Carnet</span></button>
+    </nav>
+  </main>
+
+  <svg class="svg-sprite" aria-hidden="true">
+    <symbol id="icon-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"></circle><path d="M5.5 21v-2a6.5 6.5 0 0 1 13 0v2"></path></symbol>
+    <symbol id="icon-user-solid" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="currentColor" stroke="none"></circle><path d="M4 22a8 8 0 0 1 16 0" fill="currentColor" stroke="none"></path></symbol>
+    <symbol id="icon-lock" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="11" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path><circle cx="12" cy="15.5" r="1"></circle></symbol>
+    <symbol id="icon-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"></path><circle cx="12" cy="12" r="2.5"></circle></symbol>
+    <symbol id="icon-home" viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1Z"></path></symbol>
+    <symbol id="icon-file" viewBox="0 0 24 24"><path d="M6 2h8l4 4v16H6Z"></path><path d="M14 2v5h5M9 12h6M9 16h6"></path></symbol>
+    <symbol id="icon-card" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"></rect><circle cx="8" cy="11" r="2"></circle><path d="M5 16c.7-2 5.3-2 6 0M14 10h5M14 14h5"></path></symbol>
+    <symbol id="icon-logout" viewBox="0 0 24 24"><path d="M10 5H5v14h5M14 8l4 4-4 4M18 12H9"></path></symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"></path></symbol>
+    <symbol id="icon-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M12 11v6M12 7h.01"></path></symbol>
+    <symbol id="icon-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M8 3v4M16 3v4M3 10h18"></path></symbol>
+    <symbol id="icon-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></symbol>
+    <symbol id="icon-camera" viewBox="0 0 24 24"><path d="M3 7h4l2-3h6l2 3h4v13H3Z"></path><circle cx="12" cy="13" r="4"></circle></symbol>
+    <symbol id="icon-chevron" viewBox="0 0 24 24"><path d="m7 9 5 5 5-5"></path></symbol>
+  </svg>
+  <script src="app.js"></script>
+</body>
+</html>
